@@ -1,15 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Trần Khánh Duy</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+	<title>Lâm Hào Kiệt</title>
 <style>
 	body {
 		-webkit-user-select: none; /* Safari */
 		-moz-user-select: none; /* Firefox */
 		-ms-user-select: none; /* IE 10+ */
 		user-select: none; /* Standard syntax */
+		font-family: Monospace, sans-serif;
+		background-image: url('scripts/wave.svg'); /* Đường dẫn đến file SVG */
+    	background-size: cover; /* Để đảm bảo rằng hình ảnh phủ hết kích thước của cửa sổ trình duyệt */
+    	background-position: center; /* Căn giữa hình ảnh */
+    	background-repeat: no-repeat; /* Không lặp lại hình ảnh */
+    	background-attachment: fixed;
+        background-image : url('img/Background.jpg')
 	}
     .container {
         position: relative;
@@ -18,19 +26,32 @@
     .div1 {
     	display: inline-block;
         margin-left: 15%;
+        
         position: fixed;
-        width: 20%;
+        width: 15%;
         overflow: hidden; /* Chặn hình ảnh vượt ra khỏi khung div */
-        background-color: lightblue;
+        /*background-color: lightblue;*/
     }
-    .div1 img {
-        width: 70%;
+    .img2 {
+        width: 90%;
         margin-top: 5%;
-        margin-left: 15%;
+        margin-left: 5%;
         height: auto;
         border-radius: 50%; /* Tạo khung hình tròn */
         display: block; /* Đảm bảo hình ảnh nằm giữa div */
     }
+
+    a {
+	    color: blue; /* Màu văn bản mặc định */
+	    text-decoration: none;
+	    transition: color 0.3s ease; /* Hiệu ứng chuyển đổi màu văn bản */
+	}
+
+	a:hover {
+		font-family: arial, sans-serif; /* Kiểu font */
+	}
+
+
     .div2 {
         margin-left: 21%; /* Khoảng cách để tránh chồng lên nhau */
         width: 50%;
@@ -40,6 +61,49 @@
         width: 15%;
         height: 100%;
     }
+    .div-1{
+        font-size: 35px;
+        margin-bottom: -10px;
+        font-weight: bold;
+        margin-top: 10px;
+    }
+    .div-2{
+        font-size: 35px;
+        margin-bottom: -10px;
+        font-weight: bold;
+        margin-top: 10px;
+        list-style: inside;
+    }
+    .css1{
+        margin-left: -40px;
+        font-size: 15px;
+        color: blue;
+        list-style: none;
+        
+    }
+    .css1 li{
+        padding-left: 20px; /* Khoảng cách giữa hình ảnh và văn bản */
+	  	margin-bottom: 10px;
+        
+    }
+    .css1 li.item1{
+        background-image: url('img/Address.png'); /* Đường dẫn đến hình ảnh cho mục 1 */
+	  	background-repeat: no-repeat; /* Không lặp lại hình ảnh */
+	  	background-position: 0 50%; /* Đặt vị trí của hình ảnh */
+  		background-size: 18px; /* Cố định kích thước của hình ảnh */
+    }
+    .css1 li.item2{
+        background-image: url('img/Mail.png'); /* Đường dẫn đến hình ảnh cho mục 1 */
+	  	background-repeat: no-repeat; /* Không lặp lại hình ảnh */
+	  	background-position: 0 50%; /* Đặt vị trí của hình ảnh */
+  		background-size: 18px; /* Cố định kích thước của hình ảnh */
+    }
+    .css1 li.item3{
+        background-image: url('img/Phone.png'); /* Đường dẫn đến hình ảnh cho mục 1 */
+	  	background-repeat: no-repeat; /* Không lặp lại hình ảnh */
+	  	background-position: 0 50%; /* Đặt vị trí của hình ảnh */
+  		background-size: 18px; /* Cố định kích thước của hình ảnh */
+    }
     @media only screen and (max-width: 800px) {
     	.container {
     		display: grid;
@@ -48,6 +112,7 @@
         	position: relative;
         	margin-left: 0%;
 			width: 100%;
+            background-color: #a170f0;
 		}
 		.div2 {
         	position: relative;
@@ -59,55 +124,171 @@
 			width: 0%;
 		}
 	}
+	.custom-list {
+	  	list-style: none; /* Loại bỏ chấm đầu dòng mặc định */
+	  	padding-left: 20px; /* Để tạo khoảng cách giữa hình ảnh và văn bản */
+	}
+
+	.custom-list li {
+	  	padding-left: 30px; /* Khoảng cách giữa hình ảnh và văn bản */
+	  	margin-bottom: 10px; /* Khoảng cách giữa các mục danh sách */
+	}
+
+	.custom-list li.item1 {
+	  	background-image: url('img/icons8-java-188.png'); /* Đường dẫn đến hình ảnh cho mục 1 */
+	  	background-repeat: no-repeat; /* Không lặp lại hình ảnh */
+	  	background-position: 0 50%; /* Đặt vị trí của hình ảnh */
+  		background-size: 24px; /* Cố định kích thước của hình ảnh */
+	}
+
+	.custom-list li.item2 {
+	  	background-image: url('img/icons8-unity-50.png'); /* Đường dẫn đến hình ảnh cho mục 2 */
+	  	background-repeat: no-repeat; /* Không lặp lại hình ảnh */
+	  	background-position: 0 50%; /* Đặt vị trí của hình ảnh */
+  		background-size: 24px; /* Cố định kích thước của hình ảnh */
+	}
+
+	.custom-list li.item3 {
+	  	background-image: url('img/icons8-html5-96.png'); /* Đường dẫn đến hình ảnh cho mục 3 */
+	  	background-repeat: no-repeat; /* Không lặp lại hình ảnh */
+  		background-position: 0 50%; /* Đặt vị trí của hình ảnh */
+  		background-size: 24px; /* Cố định kích thước của hình ảnh */
+	}
+	.custom-list li.item4 {
+	  	background-image: url('img/icons8-database-100.png'); /* Đường dẫn đến hình ảnh cho mục 3 */
+	  	background-repeat: no-repeat; /* Không lặp lại hình ảnh */
+  		background-position: 0 50%; /* Đặt vị trí của hình ảnh */
+  		background-size: 24px; /* Cố định kích thước của hình ảnh */
+	}
+	.custom-list li.item5 {
+	  	background-image: url('img/icons8-github-50.png'); /* Đường dẫn đến hình ảnh cho mục 3 */
+	  	background-repeat: no-repeat; /* Không lặp lại hình ảnh */
+  		background-position: 0 50%; /* Đặt vị trí của hình ảnh */
+  		background-size: 24px; /* Cố định kích thước của hình ảnh */
+	}
+	.custom-list li.item6 {
+	  	background-image: url('img/icons8-problem-64.png'); /* Đường dẫn đến hình ảnh cho mục 3 */
+	  	background-repeat: no-repeat; /* Không lặp lại hình ảnh */
+  		background-position: 0 50%; /* Đặt vị trí của hình ảnh */
+  		background-size: 24px; /* Cố định kích thước của hình ảnh */
+	}
+	.custom-list li.item7 {
+	  	background-image: url('img/icons8-learning-64.png'); /* Đường dẫn đến hình ảnh cho mục 3 */
+	  	background-repeat: no-repeat; /* Không lặp lại hình ảnh */
+  		background-position: 0 50%; /* Đặt vị trí của hình ảnh */
+  		background-size: 24px; /* Cố định kích thước của hình ảnh */
+	}
+	.chart-container {
+	    width: 80%;
+	    margin: 50px auto;
+	}
+
+	canvas {
+	    border: 1px solid #ddd;
+	}
+	.svgclss {
+
+	}
+    .class2{
+        font-size: 35px;
+        margin-bottom: -10px;
+        font-weight: bold;
+        margin-top: 10px;
+        list-style: inside;
+    }
+    .div2 ul>li>p{
+        font-size: 25px;
+        margin-bottom: 20px;
+    }
+    .div2 ul li.list{
+        list-style: none;
+        font-weight: bold;
+
+        
+    }
+    .div2 ul>li>h3{
+        opacity:0.5;
+    }
 </style>
 </head>
 <body>
     <div class="container">
     	<div class="div_1"></div>
         <div class="div1">
+        	<div style="text-align: center; font-family: Times 'Times New Roman', Times, serif;">
+        		<h1>KIỆT LÂM</h1>
+        	</div>
             <!-- Thêm hình ảnh vào div1 -->
-            <img src="img/WIN_20240306_13_54_05_Pro.jpg" alt="Ảnh" />
-            <h1>Thằng dở hơi này tên Duy</h1>
-            <h2>Why Learn Programming?</h2>
-            <p>Learning programming can open up a world of opportunities. Here are a few reasons why you should consider learning programming:</p>
-            <ul>
-                <li><strong>Career Opportunities:</strong> Programming skills are in high demand across various industries, offering lucrative career options.</li>
-                <li><strong>Problem-Solving Skills:</strong> Programming teaches you how to break down complex problems into smaller, manageable tasks.</li>
-                <li><strong>Creativity:</strong> Programming allows you to bring your ideas to life and create innovative solutions to real-world problems.</li>
-                <li><strong>Personal Development:</strong> Learning programming can enhance your logical thinking, attention to detail, and ability to learn new technologies.</li>
+            <img class="img2" src="img/Avatar.jpg" alt="Ảnh" />
+
+    		<br>
+        	<div style="text-align: center;">
+        		<a href="https://web.facebook.com/profile.php?id=100013906990889">Resume</a> | 
+        		<a href="https://www.facebook.com/lu.kiet.9484/about">Facebook</a> | 
+        		<a href="https://github.com/katkt123">Github</a>
+        	</div>
+            <ul class ="css1">
+                <li class = "item1">District Hoc Mon , HCM City</li>
+                <li class = "item2">lamkiet0902741206@gmail.com</li>
+                <li class = "item3">0763255521</li>
             </ul>
-            <p>Whether you're interested in web development, mobile app development, data science, or cybersecurity, learning programming is a valuable skill that can pave the way for a successful career.</p>
-        
+            <div class ="div-1"> PROFILE </div>
+            <p>I am a student of Saigon University in Ho Chi Minh City.</p>
+            <p>I am majoring in Software Engineering in the Information Technology Department.</p>
+            <div class ="div-2">Language</div>
+            <p> English</p>
+            <p>Vietnamese</p>
+        	
         </div>
         <div class="div2">
-        	
-    		<h2>My Skills</h2>
-            <p>Here are some of my skills:</p>
-            <ul>
-                <li><strong>Advanced Java:</strong> I have a strong command of Java programming language, including advanced concepts such as multithreading, networking, and GUI programming.</li>
-                <li><strong>Basic Unity:</strong> I have basic knowledge of Unity game development platform, including game object manipulation, basic scripting, and scene creation.</li>
-                <li><strong>Web Development:</strong> I am proficient in HTML, CSS, and JavaScript, and have experience building responsive and interactive websites.</li>
-                <li><strong>Database Management:</strong> I have experience working with SQL databases, including MySQL and PostgreSQL.</li>
-                <li><strong>Version Control:</strong> I am familiar with Git and GitHub, and use version control for managing my projects.</li>
-                <li><strong>Problem Solving:</strong> I have strong problem-solving skills and enjoy tackling challenging programming problems.</li>
-                <li><strong>Continuous Learning:</strong> I am committed to continuous learning and staying updated with the latest technologies and trends in the field of programming.</li>
+        	<div class = "class2">PORTFOLIO</div>
+            <hr>
+    		<h1>My Skills</h1>
+            <ul class="custom-list">
+                <li class="item1"><strong>Advanced Java:</strong> I have a strong command of Java programming language, including advanced concepts such as multithreading, networking, and GUI programming.</li>
+                <li class="item2"><strong>Basic Unity:</strong> I have basic knowledge of Unity game development platform, including game object manipulation, basic scripting, and scene creation.</li>
+                <li class="item3"><strong>Web Development:</strong> I am proficient in HTML, CSS, and JavaScript, and have experience building responsive and interactive websites.</li>
+                <li class="item4"><strong>Database Management:</strong> I have experience working with SQL databases, including MySQL and PostgreSQL.</li>
+                <li class="item5"><strong>Version Control:</strong> I am familiar with Git and GitHub, and use version control for managing my projects.</li>
+                <li class="item6"><strong>Problem Solving:</strong> I have strong problem-solving skills and enjoy tackling challenging programming problems.</li>
+                <li class="item7"><strong>Continuous Learning:</strong> I am committed to continuous learning and staying updated with the latest technologies and trends in the field of programming.</li>
             </ul>
             <p>These skills have been developed through self-study, projects, and practical experience.</p>
-        	<p>Here are my project: </p>
-        	<a href="">
-        		<!-- Sử dụng thẻ <img> để chèn icon Facebook -->
-        		<img src="img/course.png" alt="Course" width="100%">
-    		</a>
-    		<br><br>
-    		<a href="https://web.facebook.com/profile.php?id=100013906990889">
-        		<!-- Sử dụng thẻ <img> để chèn icon Facebook -->
-        		<img src="img/icons8-facebook-48.png" alt="Facebook của tôi" width="55" height="55">
-    		</a>
-    		<a href="https://twitter.com/duykhnh22998254">
-        		<!-- Sử dụng thẻ <img> để chèn icon Facebook -->
-        		<img src="img/icons8-twitterx-50.png" alt="Twitter của tôi">
-    		</a>
+        	<h1>Project</h1>
+        	<ul>
+        		<li class="list">
+        			<p>Sellphone Management</p>
+                    <h3>Jan 2023 - May 2023 </h3>
+                    <a href="https://github.com/katkt123/CSharp_SellPhone">
+    					<img src="https://img.shields.io/badge/GitHub-View_on_GitHub-blue?logo=GitHub" alt="View on GitHub">
+    				</a>
+        			<li>Developed a sellphone application using C# and SQL to manage inventory, sales, and customer data.</li>
+                    <li>The application allowed users to browse and purchase products, as well as manage their accounts.</li>
+                    <li>Used object-oriented programming principles to create a maintainable and scalable codebase.</li>
+                    <li>Implemented agile development methodologies to deliver the application on time and within budget.</li>
+                    <li>Designed a user interface that was easy to use and navigate.</li>
+        			
+        		</li>
+
+        		<li class="list">
+        			<p>Website Tour Travelling</p>
+                    <h3>Sep 2022 - Dec 2022</h3>
+                    <a href="https://github.com/katkt123/Web_TourTravelling">
+    					<img src="https://img.shields.io/badge/GitHub-View_on_GitHub-blue?logo=GitHub" alt="View on GitHub">
+    				</a>
+                    <li>Developed a travel website using HTML, CSS, and JavaScript.</li>
+        			<li>The website allowed users to browse and book travel packages, as well as manage their accounts.</li>
+                    <li>Used responsive web design principles to create a website that looked good on all devices.</li>
+                    <li>Implemented user experience design best practices to create a user-friendly website.</li>
+        			
+        		</li>
+
+        		
+        	</ul>
+    		
         </div>
     </div>
+    
+
 </body>
 </html>
